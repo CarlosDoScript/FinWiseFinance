@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FinWiseFinance.Core.Enums
 {
-    public enum UserType
+    public enum UserTypeSalaryEnum
     {
-        PHYSICAL = 0,
-        LEGAL = 1
+        LIQUID = 0,
+        GROSS = 1
     }
 }
