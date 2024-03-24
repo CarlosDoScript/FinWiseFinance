@@ -38,6 +38,9 @@ namespace FinWiseFinance.Core.Entities
         public string Password { get; private set; }
 
         public List<UserProfession>? Professions { get; private set; }
+        public List<Bill> Bills { get; private set; }
+        public List<InstallmentBill> InstallmentBills { get; private set; }
+
         public CompanyBranch? CompanyBranch { get; private set; }
     }
 }
