@@ -2,11 +2,11 @@
 {
     public class InstallmentBill : BaseEntity
     {
-        public InstallmentBill(int installment, DateTime due, decimal installmentValue, string? barCode)
+        public InstallmentBill(int installment, DateTime due, decimal installmentAmount, string? barCode)
         {
             Installment = installment;
             Due = due;
-            InstallmentValue = installmentValue;
+            InstallmentAmount = installmentAmount;
             BarCode = barCode;
 
             Active = true;
@@ -15,7 +15,7 @@
 
         public int Installment { get; private set; }
         public DateTime Due { get; private set; }
-        public decimal InstallmentValue { get; private set; }
+        public decimal InstallmentAmount { get; private set; }
         public string? BarCode { get; private set; }
         public bool Active { get; private set; }
         public DateTime CreatedAt { get; private set; }

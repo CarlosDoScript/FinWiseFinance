@@ -2,10 +2,12 @@
 {
     public class Profession : BaseEntity
     {
-        public Profession(string description, DateTime createdAt)
+        public Profession(string description)
         {
             Description = description;
-            CreatedAt = createdAt;
+
+            Active = true;
+            CreatedAt = DateTime.Now;
         }
 
         public string Description { get; private set; }

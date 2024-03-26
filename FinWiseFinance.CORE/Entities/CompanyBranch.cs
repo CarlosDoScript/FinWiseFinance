@@ -2,11 +2,12 @@
 {
     public class CompanyBranch : BaseEntity
     {
-        public CompanyBranch(string description, DateTime createdAt, bool active)
+        public CompanyBranch(string description)
         {
             Description = description;
-            CreatedAt = createdAt;
-            Active = active;
+
+            Active = true;
+            CreatedAt = DateTime.Now;
         }
 
         public string Description { get; private set; }

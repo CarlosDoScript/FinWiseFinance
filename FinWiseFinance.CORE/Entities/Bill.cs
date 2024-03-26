@@ -19,6 +19,7 @@ namespace FinWiseFinance.Core.Entities
             InstallmentBills = new List<InstallmentBill>();
         }
 
+        public string Title { get; private set; }
         public string Description { get; private set; }
         public BillTypeEnum Type { get; private set; }
         public decimal TotalAmountDue { get; private set; }
@@ -31,6 +32,5 @@ namespace FinWiseFinance.Core.Entities
         public User User { get; private set; }
 
         public List<InstallmentBill> InstallmentBills { get; private set; }
-
     }
 }

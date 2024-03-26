@@ -6,10 +6,15 @@
         {
             IdUser = idUser;
             IdProfession = idProfession;
+
+            Active = true;
+            CreatedAt = DateTime.Now;
         }
 
         public int IdUser { get; private set; }
         public int IdProfession { get; private set; }
+        public bool Active { get; private set; }
+        public DateTime CreatedAt { get; private set; }
         public Profession Profession { get; private set; }
     }
 }
