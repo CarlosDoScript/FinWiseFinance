@@ -4,7 +4,7 @@ namespace FinWiseFinance.Core.Entities
 {
     public class User : BaseEntity
     {
-        public User(string fullName, string email, string? phoneNumber, string cpfCnpj, decimal money, string? corporateReason, UserTypeEnum type, UserTypeSalaryEnum typeSalary, DateTime birthDate, DateTime createdAt,string password)
+        public User(string fullName, string email, string? phoneNumber, string cpfCnpj, decimal money, string? corporateReason, UserTypeEnum type, UserTypeSalaryEnum typeSalary, DateTime birthDate, DateTime createdAt,string password,DateTime dayOfReceipt)
         {
             FullName = fullName;
             Email = email;
@@ -17,6 +17,7 @@ namespace FinWiseFinance.Core.Entities
             BirthDate = birthDate;
             CreatedAt = createdAt;
             Password = password;
+            DayOfReceipt = dayOfReceipt;
 
             Active = true;
             CreatedAt = DateTime.Now;
@@ -35,6 +36,7 @@ namespace FinWiseFinance.Core.Entities
         public string? CorporateReason { get; private set; }
         public UserTypeEnum Type { get; private set; }
         public UserTypeSalaryEnum TypeSalary { get; private set; }
+        public DateTime DayOfReceipt { get; private set; }
         public DateTime BirthDate { get; private set; }
         public DateTime CreatedAt { get; private set; }
         public bool Active { get; private set; }
@@ -44,6 +46,7 @@ namespace FinWiseFinance.Core.Entities
         public List<Bill> Bills { get; private set; }
         public List<InstallmentBill> InstallmentBills { get; private set; }
         public List<DailyExpense> DailyExpenses { get; private set; }
+        public List<PurchaseTarget> PurchaseTargets { get; private set; }
 
         public CompanyBranch? CompanyBranch { get; private set; }
     }
