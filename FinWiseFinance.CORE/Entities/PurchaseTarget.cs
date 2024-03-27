@@ -31,5 +31,7 @@
         public DateTime CreatedAt { get; private set; }
 
         public User User { get; private set; }
+        public Bank? Bank { get; private set; }
+
     }
 }

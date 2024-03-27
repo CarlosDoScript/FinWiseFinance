@@ -26,6 +26,8 @@ namespace FinWiseFinance.Core.Entities
             Bills  = new List<Bill>();
             InstallmentBills = new List<InstallmentBill>();
             DailyExpenses = new List<DailyExpense>();
+            PurchaseTargets = new List<PurchaseTarget>();
+            Banks = new List<Bank>();
     }
 
         public string FullName { get; private set; }
@@ -47,6 +49,7 @@ namespace FinWiseFinance.Core.Entities
         public List<InstallmentBill> InstallmentBills { get; private set; }
         public List<DailyExpense> DailyExpenses { get; private set; }
         public List<PurchaseTarget> PurchaseTargets { get; private set; }
+        public List<Bank>? Banks { get; private set; }
 
         public CompanyBranch? CompanyBranch { get; private set; }
     }

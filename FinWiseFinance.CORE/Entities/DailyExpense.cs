@@ -24,5 +24,7 @@
 
 
         public User User { get; set; }
+        public Bank? Bank { get; private set; }
+
     }
 }

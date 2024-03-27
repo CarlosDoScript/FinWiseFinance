@@ -30,6 +30,7 @@ namespace FinWiseFinance.Core.Entities
         public DateTime CreatedAt { get; private set; }
 
         public User User { get; private set; }
+        public Bank? Bank { get; private set; }
 
         public List<InstallmentBill> InstallmentBills { get; private set; }
     }
