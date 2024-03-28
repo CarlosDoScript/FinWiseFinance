@@ -27,6 +27,8 @@ namespace FinWiseFinance.Core.Entities
         public string Observation { get; private set; }
         public DateTime InstallmentStart { get; private set; }
         public bool Active { get; private set; }
+        public int IdUser { get; private set; }
+        public int? IdBank { get; private set; }
         public DateTime CreatedAt { get; private set; }
 
         public User User { get; private set; }

@@ -41,6 +41,18 @@ namespace FinWiseFinance.Infrastructure.Persistence.Configurations
             builder
                 .Property(b => b.CreatedAt)
                 .HasColumnType("DATETIME");
+
+            builder
+                .HasOne(b => b.User)
+                .WithMany(b => b.Bills)
+                .HasForeignKey(b => b.IdUser)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder
+                .HasOne(b => b.Bank)
+                .WithMany(b => b.Bills)
+                .HasForeignKey(b => b.IdBank)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
