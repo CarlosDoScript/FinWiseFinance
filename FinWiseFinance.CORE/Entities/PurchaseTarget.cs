@@ -33,5 +33,6 @@
         public User User { get; private set; }
         public Bank? Bank { get; private set; }
 
+        public List<PurchaseObjectiveHistory>? PurchaseObjectiveHistories { get; private set; }
     }
 }
