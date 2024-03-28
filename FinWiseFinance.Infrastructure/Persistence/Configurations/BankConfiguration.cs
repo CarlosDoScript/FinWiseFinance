@@ -16,15 +16,13 @@ namespace FinWiseFinance.Infrastructure.Persistence.Configurations
 
             builder
                 .Property(b => b.Title)
-                .IsRequired()
                 .HasColumnName("Title")
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(255);
 
             builder
-               .Property(b => b.Description)
-               .IsRequired()
-               .HasColumnName("Title")
+               .Property(b => b.Description)               
+               .HasColumnName("Description")
                .HasColumnType("VARCHAR")
                .HasMaxLength(255);
 
