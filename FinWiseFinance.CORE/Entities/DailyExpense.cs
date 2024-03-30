@@ -21,6 +21,8 @@
         public bool Daily { get; private set; }
         public DateTime CreatedAt { get; private set; }
         public bool DeductMonthlyIncome { get; private set; }
+        public int IdUser { get; private set; }
+        public int? IdBank { get; private set; }
 
 
         public User User { get; set; }
