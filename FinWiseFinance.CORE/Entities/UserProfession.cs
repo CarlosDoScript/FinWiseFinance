@@ -15,6 +15,8 @@
         public int IdProfession { get; private set; }
         public bool Active { get; private set; }
         public DateTime CreatedAt { get; private set; }
+        
         public Profession Profession { get; private set; }
+        public User User { get; private set; }
     }
 }
