@@ -16,5 +16,6 @@
         public bool Active { get; private set; }
 
         public List<Bill> Bills { get; private set; }
+        public List<InstallmentBill> InstallmentBills { get; private set; }
     }
 }
