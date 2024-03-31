@@ -22,7 +22,7 @@ namespace FinWiseFinance.Core.Entities
             Active = true;
             CreatedAt = DateTime.Now;
 
-            Professions = new List<UserProfession>();
+            UserProfessions = new List<UserProfession>();
             Bills  = new List<Bill>();
             InstallmentBills = new List<InstallmentBill>();
             DailyExpenses = new List<DailyExpense>();
@@ -44,7 +44,7 @@ namespace FinWiseFinance.Core.Entities
         public bool Active { get; private set; }
         public string Password { get; private set; }
 
-        public List<UserProfession>? Professions { get; private set; }
+        public List<UserProfession> UserProfessions { get; private set; }
         public List<Bill> Bills { get; private set; }
         public List<InstallmentBill> InstallmentBills { get; private set; }
         public List<DailyExpense> DailyExpenses { get; private set; }

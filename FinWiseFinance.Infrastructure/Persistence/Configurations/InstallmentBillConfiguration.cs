@@ -34,17 +34,21 @@ namespace FinWiseFinance.Infrastructure.Persistence.Configurations
             builder
                 .HasOne(ib => ib.User)
                 .WithMany(ib => ib.InstallmentBills)
-                .HasForeignKey(ib => ib.IdUser);
+                .HasForeignKey(ib => ib.IdUser)
+                .OnDelete(DeleteBehavior.Restrict);
+            
 
             builder
                 .HasOne(ib => ib.Bill)
                 .WithMany(ib => ib.InstallmentBills)
-                .HasForeignKey(ib => ib.IdBill);
+                .HasForeignKey(ib => ib.IdBill)
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder
                 .HasOne(ib => ib.Bank)
                 .WithMany(ib => ib.InstallmentBills)
-                .HasForeignKey(ib => ib.IdBank);
+                .HasForeignKey(ib => ib.IdBank)
+                .OnDelete(DeleteBehavior.Restrict); 
         }
     }
 }

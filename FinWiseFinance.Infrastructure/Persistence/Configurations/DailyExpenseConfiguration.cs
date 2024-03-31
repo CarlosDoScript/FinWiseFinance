@@ -36,12 +36,15 @@ namespace FinWiseFinance.Infrastructure.Persistence.Configurations
             builder
                 .HasOne(d => d.User)
                 .WithMany(d => d.DailyExpenses)
-                .HasForeignKey(d => d.IdUser);
+                .HasForeignKey(d => d.IdUser)
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder
                 .HasOne(d => d.Bank)
                 .WithMany(d => d.DailyExpenses)
-                .HasForeignKey(d => d.IdBank);
+                .HasForeignKey(d => d.IdBank)
+                .OnDelete(DeleteBehavior.Restrict);
+            ;
         }
     }
 }
