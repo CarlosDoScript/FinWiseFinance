@@ -50,6 +50,7 @@ namespace FinWiseFinance.Core.Entities
         public List<DailyExpense> DailyExpenses { get; private set; }
         public List<PurchaseTarget> PurchaseTargets { get; private set; }
         public List<Bank>? Banks { get; private set; }
+        public List<PurchaseObjectiveHistory>? PurchaseObjectiveHistories {  get; private set; }
 
         public CompanyBranch? CompanyBranch { get; private set; }
     }
