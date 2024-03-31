@@ -26,9 +26,7 @@ namespace FinWiseFinance.Infrastructure.Persistence.Configurations
 
             builder
                .Property(b => b.CreatedAt)
-               .HasColumnType("DATETIME");
-
-
+               .HasColumnType("DATETIME");                        
         }
     }
 }

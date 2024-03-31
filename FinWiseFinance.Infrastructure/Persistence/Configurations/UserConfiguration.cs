@@ -30,11 +30,6 @@ namespace FinWiseFinance.Infrastructure.Persistence.Configurations
                 .HasMaxLength(15);
             
             builder
-                .Property(u => u.CompanyBranch)
-                .HasColumnType("VARCHAR")
-                .HasMaxLength(14);
-
-            builder
                 .Property(u => u.Income)
                 .HasColumnType("DECIMAL (18,2)")
                 .HasMaxLength(18);
@@ -59,6 +54,10 @@ namespace FinWiseFinance.Infrastructure.Persistence.Configurations
             builder
                 .Property(u => u.Password)
                 .HasColumnType("VARCHAR(MAX)");
+
+            builder.Property(u => u.IdCompanyBranch)
+               .HasColumnName("IdCompanyBranch")
+               .HasColumnType("INT");
 
             builder
                 .HasOne(u => u.CompanyBranch)

@@ -4,13 +4,13 @@ namespace FinWiseFinance.Core.Entities
 {
     public class User : BaseEntity
     {
-        public User(string fullName, string email, string? phoneNumber, string cpfCnpj, decimal money, string? corporateReason, UserTypeEnum type, UserTypeSalaryEnum typeSalary, DateTime birthDate, string password, DateTime dayOfReceipt, int idCompanyBranch)
+        public User(string fullName, string email, string? phoneNumber, string cpfCnpj, decimal income, string? corporateReason, UserTypeEnum type, UserTypeSalaryEnum typeSalary, DateTime birthDate, string password, DateTime dayOfReceipt, int? idCompanyBranch)
         {
             FullName = fullName;
             Email = email;
             PhoneNumber = phoneNumber;
             CpfCnpj = cpfCnpj;
-            Income = money;
+            Income = income;
             CorporateReason = corporateReason;
             Type = type;
             TypeSalary = typeSalary;
@@ -27,7 +27,6 @@ namespace FinWiseFinance.Core.Entities
             InstallmentBills = new List<InstallmentBill>();
             DailyExpenses = new List<DailyExpense>();
             PurchaseTargets = new List<PurchaseTarget>();
-            Banks = new List<Bank>();
             PurchaseObjectiveHistories = new List<PurchaseObjectiveHistory>();
         }
 
@@ -44,14 +43,13 @@ namespace FinWiseFinance.Core.Entities
         public DateTime CreatedAt { get; private set; }
         public bool Active { get; private set; }
         public string Password { get; private set; }
-        public int IdCompanyBranch { get; private set; }
+        public int? IdCompanyBranch { get; private set; }
 
         public List<UserProfession> UserProfessions { get; private set; }
         public List<Bill> Bills { get; private set; }
         public List<InstallmentBill> InstallmentBills { get; private set; }
         public List<DailyExpense> DailyExpenses { get; private set; }
         public List<PurchaseTarget> PurchaseTargets { get; private set; }
-        public List<Bank>? Banks { get; private set; }
         public List<PurchaseObjectiveHistory>? PurchaseObjectiveHistories { get; private set; }
 
         public CompanyBranch? CompanyBranch { get; private set; }

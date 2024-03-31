@@ -27,7 +27,7 @@ namespace FinWiseFinance.Core.Entities
         public BillTypeEnum Type { get; private set; }
         public decimal TotalAmountDue { get; private set; }
         public int TotalInstallments { get; private set; }
-        public string Observation { get; private set; }
+        public string? Observation { get; private set; }
         public DateTime InstallmentStart { get; private set; }
         public bool Active { get; private set; }
         public int IdUser { get; private set; }

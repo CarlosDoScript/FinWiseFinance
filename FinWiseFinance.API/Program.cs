@@ -1,6 +1,11 @@
 #region SERVICES
+using FinWiseFinance.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
+var connectionString = builder.Configuration.GetConnectionString("FinWiseFinanceCs");
+builder.Services.AddDbContext<FinWiseFinanceDbContext>(f => f.UseSqlServer(connectionString));
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
