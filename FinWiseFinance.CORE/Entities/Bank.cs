@@ -20,5 +20,6 @@
         public List<Bill> Bills { get; private set; }
         public List<InstallmentBill> InstallmentBills { get; private set; }
         public List<DailyExpense> DailyExpenses { get; private set; }
+        public List<PurchaseTarget> PurchaseTargets { get; private set; }
     }
 }
