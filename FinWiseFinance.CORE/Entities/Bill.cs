@@ -4,14 +4,17 @@ namespace FinWiseFinance.Core.Entities
 {
     public class Bill : BaseEntity
     {
-        public Bill(string description, BillTypeEnum type, decimal totalAmountDue, int totalInstallments, string observation, DateTime installmentStart)
+        public Bill(string title,string description, BillTypeEnum type, decimal totalAmountDue, int totalInstallments, string observation, DateTime installmentStart, int idUser, int? idBank)
         {
+            Title = title;
             Description = description;
             Type = type;
             TotalAmountDue = totalAmountDue;
             TotalInstallments = totalInstallments;
             Observation = observation;
             InstallmentStart = installmentStart;
+            IdUser = idUser;
+            IdBank = idBank;
 
             Active = true;
             CreatedAt = DateTime.Now;

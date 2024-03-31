@@ -2,13 +2,15 @@
 {
     public class DailyExpense : BaseEntity
     {
-        public DailyExpense(string title, string description, decimal amount, bool daily, bool deductMonthlyIncome)
+        public DailyExpense(string title, string description, decimal amount, bool daily, bool deductMonthlyIncome, int idUser, int? idBank)
         {
             Title = title;
             Description = description;            
             Amount = amount;
             Daily = daily;
             DeductMonthlyIncome = deductMonthlyIncome;
+            IdUser = idUser;
+            IdBank = idBank;
 
             Active = true;
             CreatedAt = DateTime.Now;

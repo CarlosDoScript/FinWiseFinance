@@ -2,11 +2,14 @@
 {
     public class PurchaseObjectiveHistory : BaseEntity
     {
-        public PurchaseObjectiveHistory(string title,string description, decimal amount)
+        public PurchaseObjectiveHistory(string title,string description, decimal amount, int idUser, int idPurchaseTarget)
         {
             Title = title;
             Description = description;
             Amount = amount;
+            IdUser = idUser;
+            IdPurchaseTarget = idPurchaseTarget;
+
             CreatedAt = DateTime.Now;
             Active = true;
         }

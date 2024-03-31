@@ -2,12 +2,15 @@
 {
     public class InstallmentBill : BaseEntity
     {
-        public InstallmentBill(int installment, DateTime due, decimal installmentAmount, string? barCode)
+        public InstallmentBill(int installment, DateTime due, decimal installmentAmount, string? barCode, int idBill, int idUser, int? idBank)
         {
             Installment = installment;
             Due = due;
             InstallmentAmount = installmentAmount;
             BarCode = barCode;
+            IdBill = idBill;
+            IdUser = idUser;
+            IdBank = idBank;
 
             Active = true;
             CreatedAt = DateTime.Now;

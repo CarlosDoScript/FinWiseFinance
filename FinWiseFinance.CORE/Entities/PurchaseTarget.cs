@@ -2,7 +2,7 @@
 {
     public class PurchaseTarget : BaseEntity
     {
-        public PurchaseTarget(string title, string? description, bool deductMonthlyIncome, decimal amount, string? link,bool combinedHistory, decimal specifiedValue)
+        public PurchaseTarget(string title, string? description, bool deductMonthlyIncome, decimal amount, string? link,bool combinedHistory, decimal specifiedValue, int idUser, int? idBank)
         {
             Title = title;
             Description = description;
@@ -11,6 +11,8 @@
             CombinedHistory = combinedHistory;
             SpecifiedValue = specifiedValue;
             DeductMonthlyIncome = deductMonthlyIncome;
+            IdUser = idUser;
+            IdBank = idBank;
 
             CombinedTotal = 0;
             Active = true;

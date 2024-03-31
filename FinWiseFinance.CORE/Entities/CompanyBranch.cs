@@ -9,11 +9,15 @@
 
             Active = true;
             CreatedAt = DateTime.Now;
+
+            Users = new List<User>();
         }
 
         public string Title { get; private set; }
         public string Description { get; private set; }
         public DateTime CreatedAt { get; private set; }
         public bool Active { get; private set; }
+
+        public List<User>? Users { get; private set; }
     }
 }

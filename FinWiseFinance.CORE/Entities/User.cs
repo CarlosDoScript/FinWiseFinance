@@ -4,7 +4,7 @@ namespace FinWiseFinance.Core.Entities
 {
     public class User : BaseEntity
     {
-        public User(string fullName, string email, string? phoneNumber, string cpfCnpj, decimal money, string? corporateReason, UserTypeEnum type, UserTypeSalaryEnum typeSalary, DateTime birthDate, DateTime createdAt,string password,DateTime dayOfReceipt)
+        public User(string fullName, string email, string? phoneNumber, string cpfCnpj, decimal money, string? corporateReason, UserTypeEnum type, UserTypeSalaryEnum typeSalary, DateTime birthDate, string password, DateTime dayOfReceipt, int idCompanyBranch)
         {
             FullName = fullName;
             Email = email;
@@ -15,20 +15,21 @@ namespace FinWiseFinance.Core.Entities
             Type = type;
             TypeSalary = typeSalary;
             BirthDate = birthDate;
-            CreatedAt = createdAt;
             Password = password;
             DayOfReceipt = dayOfReceipt;
+            IdCompanyBranch = idCompanyBranch;
 
             Active = true;
             CreatedAt = DateTime.Now;
 
             UserProfessions = new List<UserProfession>();
-            Bills  = new List<Bill>();
+            Bills = new List<Bill>();
             InstallmentBills = new List<InstallmentBill>();
             DailyExpenses = new List<DailyExpense>();
             PurchaseTargets = new List<PurchaseTarget>();
             Banks = new List<Bank>();
-    }
+            PurchaseObjectiveHistories = new List<PurchaseObjectiveHistory>();
+        }
 
         public string FullName { get; private set; }
         public string Email { get; private set; }
@@ -43,6 +44,7 @@ namespace FinWiseFinance.Core.Entities
         public DateTime CreatedAt { get; private set; }
         public bool Active { get; private set; }
         public string Password { get; private set; }
+        public int IdCompanyBranch { get; private set; }
 
         public List<UserProfession> UserProfessions { get; private set; }
         public List<Bill> Bills { get; private set; }
@@ -50,7 +52,7 @@ namespace FinWiseFinance.Core.Entities
         public List<DailyExpense> DailyExpenses { get; private set; }
         public List<PurchaseTarget> PurchaseTargets { get; private set; }
         public List<Bank>? Banks { get; private set; }
-        public List<PurchaseObjectiveHistory>? PurchaseObjectiveHistories {  get; private set; }
+        public List<PurchaseObjectiveHistory>? PurchaseObjectiveHistories { get; private set; }
 
         public CompanyBranch? CompanyBranch { get; private set; }
     }
