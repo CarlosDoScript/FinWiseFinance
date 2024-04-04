@@ -8,10 +8,17 @@
 
   <ItemGroup>
     <Folder Include="InputModels\" />
-    <Folder Include="Commands\" />
     <Folder Include="Queries\" />
     <Folder Include="Validators\" />
     <Folder Include="ViewModels\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FinWiseFinance.CORE\FinWiseFinance.Core.csproj" />
   </ItemGroup>
 
 </Project>
