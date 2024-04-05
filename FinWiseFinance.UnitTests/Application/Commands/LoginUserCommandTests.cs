@@ -13,7 +13,7 @@ namespace FinWiseFinance.UnitTests.Application.Commands
         }
 
         [Fact]
-        public void Should_Have_Error_When_CpfCnpj_Is_Empty()
+        public async void Should_Have_Error_When_CpfCnpj_Is_Empty()
         {
             //Arrange
             var command = new LoginUserCommand
@@ -22,7 +22,7 @@ namespace FinWiseFinance.UnitTests.Application.Commands
             };
 
             //Act 
-            var result = _validator.Validate(command);
+            var result = await _validator.ValidateAsync(command);
 
             //Assert
             Assert.False(result.IsValid);
@@ -30,7 +30,7 @@ namespace FinWiseFinance.UnitTests.Application.Commands
         }
 
         [Fact]
-        public void Should_Have_Error_When_Password_Is_Empty()
+        public async void Should_Have_Error_When_Password_Is_Empty()
         {
             //Arrange
             var command = new LoginUserCommand
@@ -39,11 +39,30 @@ namespace FinWiseFinance.UnitTests.Application.Commands
             };
 
             //Act
-            var result = _validator.Validate(command);
+            var result = await _validator.ValidateAsync(command);
 
             //Assert
             Assert.False(result.IsValid);
             Assert.Contains(result.Errors, error => error.PropertyName == "Password");
+        }
+
+        [Fact]
+        public async void should_be_successful_when_cpfCnpj_and_password_are_correct()
+        {
+            //Arrange
+            var command = new LoginUserCommand
+            {
+                CpfCnpj = "999999999999",
+                Password = "!Manchaalviverde2014"                
+            };
+
+            //Act
+            var result = await  _validator.ValidateAsync(command);
+
+            //Assert
+            Assert.True(result.IsValid);
+            Assert.DoesNotContain(result.Errors, error => error.PropertyName == "CpfCnpj");
+            Assert.DoesNotContain(result.Errors, error => error.PropertyName == "Password");
         }
     }
 }
