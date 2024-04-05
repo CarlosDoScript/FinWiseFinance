@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34601.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinWiseFinance.API", "FinWiseFinance.API\FinWiseFinance.API.csproj", "{56281B1D-F310-4D05-A741-41F9A40928FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinWiseFinance.API", "FinWiseFinance.API\FinWiseFinance.API.csproj", "{56281B1D-F310-4D05-A741-41F9A40928FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinWiseFinance.Core", "FinWiseFinance.CORE\FinWiseFinance.Core.csproj", "{7E1A7EB6-D749-437C-927D-530921C9D681}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinWiseFinance.Core", "FinWiseFinance.CORE\FinWiseFinance.Core.csproj", "{7E1A7EB6-D749-437C-927D-530921C9D681}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinWiseFinance.Infrastructure", "FinWiseFinance.Infrastructure\FinWiseFinance.Infrastructure.csproj", "{289EC0B3-91E7-4DA5-8757-08B955D87F03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinWiseFinance.Infrastructure", "FinWiseFinance.Infrastructure\FinWiseFinance.Infrastructure.csproj", "{289EC0B3-91E7-4DA5-8757-08B955D87F03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinWiseFinance.Application", "FinWiseFinance.Application\FinWiseFinance.Application.csproj", "{B84F45D1-041E-4522-9308-32E7FB566F21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinWiseFinance.Application", "FinWiseFinance.Application\FinWiseFinance.Application.csproj", "{B84F45D1-041E-4522-9308-32E7FB566F21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinWiseFinance.UnitTests", "FinWiseFinance.UnitTests\FinWiseFinance.UnitTests.csproj", "{372CDC35-253D-41DA-A3C7-604753535F2C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{B84F45D1-041E-4522-9308-32E7FB566F21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B84F45D1-041E-4522-9308-32E7FB566F21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B84F45D1-041E-4522-9308-32E7FB566F21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{372CDC35-253D-41DA-A3C7-604753535F2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{372CDC35-253D-41DA-A3C7-604753535F2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{372CDC35-253D-41DA-A3C7-604753535F2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{372CDC35-253D-41DA-A3C7-604753535F2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

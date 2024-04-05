@@ -4,6 +4,12 @@ namespace FinWiseFinance.Application.Validators.Exthension
 {
     public static class ExthensionMethodValidator
     {
+        public static bool ValidPassword(string password)
+        {
+            var regex = new Regex(@"^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!*@#$%^&+=]).*$");
+
+            return password == null || password.Trim() == "" ? false : regex.IsMatch(password);
+        }
         public static bool IsValidCpf(string cpf)
         {
             // Verifica se o CPF possui 11 dígitos numéricos
