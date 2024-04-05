@@ -196,7 +196,7 @@ namespace FinWiseFinance.Infrastructure.Persistence.Migrations
 
                     b.Property<string>("BarCode")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("VARCHAR");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("DATETIME");
@@ -385,7 +385,8 @@ namespace FinWiseFinance.Infrastructure.Persistence.Migrations
 
                     b.Property<string>("CpfCnpj")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("VARCHAR");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("DATETIME");

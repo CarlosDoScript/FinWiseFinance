@@ -38,6 +38,11 @@ namespace FinWiseFinance.Infrastructure.Persistence.Configurations
                 .Property(u => u.CorporateReason)
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(255);
+            
+            builder
+                .Property(u => u.CpfCnpj)
+                .HasColumnType("VARCHAR")
+                .HasMaxLength(20);
 
             builder
                 .Property(u => u.DayOfReceipt)

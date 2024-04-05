@@ -25,6 +25,7 @@ namespace FinWiseFinance.Infrastructure.Persistence.Configurations
 
             builder
                 .Property(ib => ib.BarCode)
+                .HasColumnType("VARCHAR")
                 .HasMaxLength(255);
 
             builder
