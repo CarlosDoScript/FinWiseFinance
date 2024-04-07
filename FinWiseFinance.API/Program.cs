@@ -1,8 +1,11 @@
 #region SERVICES
 using FinWiseFinance.API.Filters;
+using FinWiseFinance.Application.Commands.CreateBank;
 using FinWiseFinance.Application.Commands.LoginUser;
 using FinWiseFinance.Application.Validators;
 using FinWiseFinance.Core.Repositories;
+using FinWiseFinance.Core.Services;
+using FinWiseFinance.Infrastructure.Auth;
 using FinWiseFinance.Infrastructure.Persistence;
 using FinWiseFinance.Infrastructure.Persistence.Repositories;
 using FluentValidation.AspNetCore;
@@ -21,11 +24,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-#region REPOSITORIES
+#region REPOSITORIES E SERVICES
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IBankRepository, BankRepository>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 #endregion
 
-builder.Services.AddMediatR(m => m.RegisterServicesFromAssemblies(typeof(LoginUserCommand).Assembly));
+builder.Services.AddMediatR(m => m.RegisterServicesFromAssembly(typeof(CreateBankCommand).Assembly));
 
 # endregion
 
@@ -40,6 +45,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

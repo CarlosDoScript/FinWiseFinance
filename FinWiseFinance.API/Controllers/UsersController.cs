@@ -1,10 +1,14 @@
 ﻿using FinWiseFinance.Application.Commands.LoginUser;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinWiseFinance.API.Controllers
 {
-    public class UsersController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    [Authorize]
+    public class UsersController : ControllerBase
     {
         private readonly IMediator _mediator;
 
@@ -13,6 +17,8 @@ namespace FinWiseFinance.API.Controllers
             _mediator = mediator;
         }
 
+        [HttpPut("login")]
+        [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] LoginUserCommand command)
         {
             var loginUserViewModel = await _mediator.Send(command);
