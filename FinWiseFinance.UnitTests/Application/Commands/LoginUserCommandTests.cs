@@ -47,7 +47,7 @@ namespace FinWiseFinance.UnitTests.Application.Commands
         }
 
         [Fact]
-        public async void should_be_successful_when_cpfCnpj_and_password_are_correct()
+        public async void Should_Be_Successful_When_CpfCnpj_And_Password_Are_Correct()
         {
             //Arrange
             var command = new LoginUserCommand
