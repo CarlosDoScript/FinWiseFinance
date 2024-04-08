@@ -35,7 +35,7 @@ namespace FinWiseFinance.UnitTests.Application.Commands
             //Arrange
             var command = new LoginUserCommand
             {
-                CpfCnpj = "999999999999999"
+                CpfCnpj = "462.644.918-29"
             };
 
             //Act
@@ -52,7 +52,8 @@ namespace FinWiseFinance.UnitTests.Application.Commands
             //Arrange
             var command = new LoginUserCommand
             {
-                CpfCnpj = "999999999999",
+                //CpfCnpj = "462.644.918-29",
+                CpfCnpj = "91.753.325/0001-09",
                 Password = "!Manchaalviverde2014"                
             };
 

@@ -13,11 +13,11 @@ namespace FinWiseFinance.Application.Validators.Exthension
         public static bool IsValidCpf(string cpf)
         {
             // Verifica se o CPF possui 11 dígitos numéricos
-            if (!Regex.IsMatch(cpf, @"^\d{11}$"))
+            if (!Regex.IsMatch(cpf, @"^([0-9]{3}\.){2}[0-9]{3}-[0-9]{2}$"))
                 return false;
 
             // Cálculo do primeiro dígito verificador
-            int[] cpfArray = cpf.Select(c => int.Parse(c.ToString())).ToArray();
+            int[] cpfArray = cpf.Replace(".", "").Replace("-", "").Select(c => int.Parse(c.ToString())).ToArray();
             int sum = 0;
             for (int i = 0; i < 9; i++)
                 sum += cpfArray[i] * (10 - i);
@@ -39,11 +39,11 @@ namespace FinWiseFinance.Application.Validators.Exthension
         public static bool IsValidCnpj(string cnpj)
         {
             // Verifica se o CNPJ possui 14 dígitos numéricos
-            if (!Regex.IsMatch(cnpj, @"^\d{14}$"))
+            if (Regex.IsMatch(cnpj, @"^([0-9]{2}\.?){3}[0-9]{4}\/?([0-9]{2}\-?)[0-9]{2}$"))
                 return false;
 
             // Cálculo do primeiro dígito verificador
-            int[] cnpjArray = cnpj.Select(c => int.Parse(c.ToString())).ToArray();
+            int[] cnpjArray = cnpj.Replace(".", "").Replace("-", "").Replace("/", "").Select(c => int.Parse(c.ToString())).ToArray();
             int sum = 0;
             int[] weight = { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
 
@@ -66,5 +66,21 @@ namespace FinWiseFinance.Application.Validators.Exthension
             // Retorna true se os dígitos verificadores forem válidos
             return cnpjArray[12] == firstVerifier && cnpjArray[13] == secondVerifier;
         }
+        public static bool IsValidCpfOrCnpj(string value)
+        {
+            if (value?.Replace(".","").Replace("-","").Replace("/","").Length == 11)
+            {
+                return IsValidCpf(value);
+            }
+            else if (value?.Replace(".", "").Replace("-", "").Replace("/", "").Length == 14)
+            {
+                return IsValidCnpj(value);
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }
