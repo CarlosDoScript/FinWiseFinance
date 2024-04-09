@@ -1,30 +1,16 @@
 ﻿namespace FinWiseFinance.Core.Entities
 {
-    public class InstallmentBill : BaseEntity
+    public class InstallmentBill(int installment, DateTime due, decimal installmentAmount, string? barCode, int idBill, int idUser, int? idBank) : BaseEntity
     {
-        public InstallmentBill(int installment, DateTime due, decimal installmentAmount, string? barCode, int idBill, int idUser, int? idBank)
-        {
-            Installment = installment;
-            Due = due;
-            InstallmentAmount = installmentAmount;
-            BarCode = barCode;
-            IdBill = idBill;
-            IdUser = idUser;
-            IdBank = idBank;
-
-            Active = true;
-            CreatedAt = DateTime.Now;
-        }
-
-        public int Installment { get; private set; }
-        public DateTime Due { get; private set; }
-        public decimal InstallmentAmount { get; private set; }
-        public string? BarCode { get; private set; }
-        public bool Active { get; private set; }
-        public DateTime CreatedAt { get; private set; }
-        public int IdBill { get; private set; }
-        public int IdUser { get; private set; }
-        public int? IdBank { get; private set; }
+        public int Installment { get; private set; } = installment;
+        public DateTime Due { get; private set; } = due;
+        public decimal InstallmentAmount { get; private set; } = installmentAmount;
+        public string? BarCode { get; private set; } = barCode;
+        public bool Active { get; private set; } = true;
+        public DateTime CreatedAt { get; private set; } = DateTime.Now;
+        public int IdBill { get; private set; } = idBill;
+        public int IdUser { get; private set; } = idUser;
+        public int? IdBank { get; private set; } = idBank;
 
         public Bill Bill { get; private set; }
         public User User { get; private set; }

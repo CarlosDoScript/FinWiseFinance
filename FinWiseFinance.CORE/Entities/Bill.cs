@@ -2,41 +2,23 @@
 
 namespace FinWiseFinance.Core.Entities
 {
-    public class Bill : BaseEntity
+    public class Bill(string title, string description, BillTypeEnum type, decimal totalAmountDue, int totalInstallments, string observation, DateTime installmentStart, int idUser, int? idBank) : BaseEntity
     {
-        public Bill(string title,string description, BillTypeEnum type, decimal totalAmountDue, int totalInstallments, string observation, DateTime installmentStart, int idUser, int? idBank)
-        {
-            Title = title;
-            Description = description;
-            Type = type;
-            TotalAmountDue = totalAmountDue;
-            TotalInstallments = totalInstallments;
-            Observation = observation;
-            InstallmentStart = installmentStart;
-            IdUser = idUser;
-            IdBank = idBank;
-
-            Active = true;
-            CreatedAt = DateTime.Now;
-
-            InstallmentBills = new List<InstallmentBill>();
-        }
-
-        public string Title { get; private set; }
-        public string Description { get; private set; }
-        public BillTypeEnum Type { get; private set; }
-        public decimal TotalAmountDue { get; private set; }
-        public int TotalInstallments { get; private set; }
-        public string? Observation { get; private set; }
-        public DateTime InstallmentStart { get; private set; }
-        public bool Active { get; private set; }
-        public int IdUser { get; private set; }
-        public int? IdBank { get; private set; }
-        public DateTime CreatedAt { get; private set; }
+        public string Title { get; private set; } = title;
+        public string Description { get; private set; } = description;
+        public BillTypeEnum Type { get; private set; } = type;
+        public decimal TotalAmountDue { get; private set; } = totalAmountDue;
+        public int TotalInstallments { get; private set; } = totalInstallments;
+        public string? Observation { get; private set; } = observation;
+        public DateTime InstallmentStart { get; private set; } = installmentStart;
+        public bool Active { get; private set; } = true;
+        public int IdUser { get; private set; } = idUser;
+        public int? IdBank { get; private set; } = idBank;
+        public DateTime CreatedAt { get; private set; } = DateTime.Now;
 
         public User User { get; private set; }
         public Bank? Bank { get; private set; }
 
-        public List<InstallmentBill> InstallmentBills { get; private set; }
+        public List<InstallmentBill> InstallmentBills { get; private set; } = new List<InstallmentBill>();
     }
 }

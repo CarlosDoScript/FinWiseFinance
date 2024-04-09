@@ -14,16 +14,6 @@ namespace FinWiseFinance.Application.Validators
              .Must(ExthensionMethodValidator.IsValidCpfOrCnpj)
              .WithMessage("CPF/CNPJ inválido");              
 
-            //When(u => u.CpfCnpj?.Replace(".", "").Replace("-", "").Replace("/", "").Length == 11, () =>
-            //{
-            //    RuleFor(u => u.CpfCnpj).Must(ExthensionMethodValidator.IsValidCpf).WithMessage("CPF inválido");
-            //});
-
-            //When(u => u.CpfCnpj?.Replace(".", "").Replace("-", "").Replace("/", "").Length == 14, () =>
-            //{
-            //    RuleFor(u => u.CpfCnpj).Must(ExthensionMethodValidator.IsValidCnpj).WithMessage("CNPJ inválido");
-            //});
-            
             RuleFor(u => u.Password)
                 .NotEmpty().WithMessage("Senha inválida");
 

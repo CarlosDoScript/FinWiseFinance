@@ -1,21 +1,12 @@
 ﻿namespace FinWiseFinance.Core.Entities
 {
-    public class UserProfession : BaseEntity
+    public class UserProfession(int idUser, int idProfession) : BaseEntity
     {
-        public UserProfession(int idUser, int idProfession)
-        {
-            IdUser = idUser;
-            IdProfession = idProfession;
+        public int IdUser { get; private set; } = idUser;
+        public int IdProfession { get; private set; } = idProfession;
+        public bool Active { get; private set; } = true;
+        public DateTime CreatedAt { get; private set; } = DateTime.Now;
 
-            Active = true;
-            CreatedAt = DateTime.Now;
-        }
-
-        public int IdUser { get; private set; }
-        public int IdProfession { get; private set; }
-        public bool Active { get; private set; }
-        public DateTime CreatedAt { get; private set; }
-        
         public Profession Profession { get; private set; }
         public User User { get; private set; }
     }

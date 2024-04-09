@@ -2,55 +2,29 @@
 
 namespace FinWiseFinance.Core.Entities
 {
-    public class User : BaseEntity
+    public class User(string fullName, string email, string? phoneNumber, string cpfCnpj, decimal income, string? corporateReason, UserTypeEnum type, UserTypeSalaryEnum typeSalary, DateTime birthDate, string password, DateTime dayOfReceipt, int? idCompanyBranch) : BaseEntity
     {
-        public User(string fullName, string email, string? phoneNumber, string cpfCnpj, decimal income, string? corporateReason, UserTypeEnum type, UserTypeSalaryEnum typeSalary, DateTime birthDate, string password, DateTime dayOfReceipt, int? idCompanyBranch)
-        {
-            FullName = fullName;
-            Email = email;
-            PhoneNumber = phoneNumber;
-            CpfCnpj = cpfCnpj;
-            Income = income;
-            CorporateReason = corporateReason;
-            Type = type;
-            TypeSalary = typeSalary;
-            BirthDate = birthDate;
-            Password = password;
-            DayOfReceipt = dayOfReceipt;
-            IdCompanyBranch = idCompanyBranch;
+        public string FullName { get; private set; } = fullName;
+        public string Email { get; private set; } = email;
+        public string? PhoneNumber { get; private set; } = phoneNumber;
+        public string CpfCnpj { get; private set; } = cpfCnpj;
+        public decimal Income { get; private set; } = income;
+        public string? CorporateReason { get; private set; } = corporateReason;
+        public UserTypeEnum Type { get; private set; } = type;
+        public UserTypeSalaryEnum TypeSalary { get; private set; } = typeSalary;
+        public DateTime DayOfReceipt { get; private set; } = dayOfReceipt;
+        public DateTime BirthDate { get; private set; } = birthDate;
+        public DateTime CreatedAt { get; private set; } = DateTime.Now;
+        public bool Active { get; private set; } = true;
+        public string Password { get; private set; } = password;
+        public int? IdCompanyBranch { get; private set; } = idCompanyBranch;
 
-            Active = true;
-            CreatedAt = DateTime.Now;
-
-            UserProfessions = new List<UserProfession>();
-            Bills = new List<Bill>();
-            InstallmentBills = new List<InstallmentBill>();
-            DailyExpenses = new List<DailyExpense>();
-            PurchaseTargets = new List<PurchaseTarget>();
-            PurchaseObjectiveHistories = new List<PurchaseObjectiveHistory>();
-        }
-
-        public string FullName { get; private set; }
-        public string Email { get; private set; }
-        public string? PhoneNumber { get; private set; }
-        public string CpfCnpj { get; private set; }
-        public decimal Income { get; private set; }
-        public string? CorporateReason { get; private set; }
-        public UserTypeEnum Type { get; private set; }
-        public UserTypeSalaryEnum TypeSalary { get; private set; }
-        public DateTime DayOfReceipt { get; private set; }
-        public DateTime BirthDate { get; private set; }
-        public DateTime CreatedAt { get; private set; }
-        public bool Active { get; private set; }
-        public string Password { get; private set; }
-        public int? IdCompanyBranch { get; private set; }
-
-        public List<UserProfession> UserProfessions { get; private set; }
-        public List<Bill> Bills { get; private set; }
-        public List<InstallmentBill> InstallmentBills { get; private set; }
-        public List<DailyExpense> DailyExpenses { get; private set; }
-        public List<PurchaseTarget> PurchaseTargets { get; private set; }
-        public List<PurchaseObjectiveHistory>? PurchaseObjectiveHistories { get; private set; }
+        public List<UserProfession> UserProfessions { get; private set; } = new List<UserProfession>();
+        public List<Bill> Bills { get; private set; } = new List<Bill>();
+        public List<InstallmentBill> InstallmentBills { get; private set; } = new List<InstallmentBill>();
+        public List<DailyExpense> DailyExpenses { get; private set; } = new List<DailyExpense>();
+        public List<PurchaseTarget> PurchaseTargets { get; private set; } = new List<PurchaseTarget>();
+        public List<PurchaseObjectiveHistory>? PurchaseObjectiveHistories { get; private set; } = new List<PurchaseObjectiveHistory>();
 
         public CompanyBranch? CompanyBranch { get; private set; }
     }
