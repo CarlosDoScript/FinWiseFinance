@@ -1,13 +1,19 @@
 ﻿using FinWiseFinance.Core.Entities;
 using FinWiseFinance.Core.Repositories;
+using FinWiseFinance.Core.Services;
 using MediatR;
 
 namespace FinWiseFinance.Application.Commands.CreateUser
 {
-    public class CreateUserCommandHandler(IUserRepository userRepository) : IRequestHandler<CreateUserCommand, int>
+    public class CreateUserCommandHandler(
+        IUserRepository _userRepository,
+        IAuthService _authService
+        ) : IRequestHandler<CreateUserCommand, int>
     {
         public async Task<int> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
+            var passwordHash = _authService.ComputeSha256Hash(request.Password);
+
             var user = new User(
                     request.FullName,
                     request.Email,
@@ -18,15 +24,14 @@ namespace FinWiseFinance.Application.Commands.CreateUser
                     request.Type,
                     request.TypeSalary,
                     request.BirthDate,
-                    request.Password,
+                    passwordHash,
                     request.DayOfReceipt,
                     request.IdCompanyBranch
                 );
 
-            //var result = userRepository.AddAsync
-            await Task.FromResult(4);
+            var id = await _userRepository.AddAsync(user);
 
-            return 10;
+            return id;
         }
     }
 }

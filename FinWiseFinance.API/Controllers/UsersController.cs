@@ -9,20 +9,28 @@ namespace FinWiseFinance.API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class UsersController(IMediator mediator) : ControllerBase
+    public class UsersController(IMediator _mediator) : ControllerBase
     {
-        [HttpPost]
-        [AllowAnonymous]
-        public async Task<IActionResult> PostAsync([FromBody] CreateUserCommand command)
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById()
         {
             return Ok();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> Post([FromBody] CreateUserCommand command)
+        {
+            var id = await _mediator.Send(command);
+
+            return CreatedAtAction(nameof(GetById), new { id }, command);
         }
 
         [HttpPut("login")]
         [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] LoginUserCommand command)
         {
-            var loginUserViewModel = await mediator.Send(command);
+            var loginUserViewModel = await _mediator.Send(command);
 
             if (loginUserViewModel == null)
                 return BadRequest("CPF/CNPJ ou Senha Incorretos.");
