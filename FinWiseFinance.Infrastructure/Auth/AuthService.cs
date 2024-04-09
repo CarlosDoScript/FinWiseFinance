@@ -8,15 +8,8 @@ using System.Text;
 
 namespace FinWiseFinance.Infrastructure.Auth
 {
-    public class AuthService : IAuthService
+    public class AuthService(IConfiguration _configuration) : IAuthService
     {
-        private readonly IConfiguration _configuration;
-
-        public AuthService(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
-
         public string ComputeSha256Hash(string password)
         {
             using (SHA256 sha256Hash = SHA256.Create())

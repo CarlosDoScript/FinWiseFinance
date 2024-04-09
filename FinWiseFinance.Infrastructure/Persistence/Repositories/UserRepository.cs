@@ -4,12 +4,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FinWiseFinance.Infrastructure.Persistence.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository(FinWiseFinanceDbContext _finWiseFinanceDbContext) : IUserRepository
     {
-        private readonly FinWiseFinanceDbContext _finWiseFinanceDbContext;
-        public UserRepository(FinWiseFinanceDbContext finWiseFinanceDbContext)
+        public async Task<int> AddAsync(User user)
         {
-            _finWiseFinanceDbContext = finWiseFinanceDbContext;
+            await _finWiseFinanceDbContext.AddAsync(user);            
+            await _finWiseFinanceDbContext.SaveChangesAsync();
+
+            return user.Id;
         }
 
         public async Task<User> GetUserByCpfOrCnpjAndPasswordAsync(string cpfCnpj, string passwordHash)

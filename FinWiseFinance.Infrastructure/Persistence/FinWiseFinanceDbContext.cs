@@ -4,12 +4,8 @@ using System.Reflection;
 
 namespace FinWiseFinance.Infrastructure.Persistence
 {
-    public class FinWiseFinanceDbContext : DbContext
+    public class FinWiseFinanceDbContext(DbContextOptions<FinWiseFinanceDbContext> options) : DbContext(options)
     {
-        public FinWiseFinanceDbContext(DbContextOptions<FinWiseFinanceDbContext> options) : base(options)
-        {
-        }
-
         #region DbSet
         public DbSet<Bank> Banks { get; set; }
         public DbSet<Bill> Bills { get; set; }
@@ -27,6 +23,5 @@ namespace FinWiseFinance.Infrastructure.Persistence
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
-
     }
 }
