@@ -15,7 +15,8 @@ namespace FinWiseFinance.Application.Commands.CreateUser
             var passwordHash = _authService.ComputeSha256Hash(request.Password);
 
             var user = new User(
-                    request.FullName,
+                    request.FirstName,
+                    request.LastName,
                     request.Email,
                     request.PhoneNumber,
                     request.CpfCnpj,

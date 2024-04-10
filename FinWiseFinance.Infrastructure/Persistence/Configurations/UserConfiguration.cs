@@ -15,7 +15,12 @@ namespace FinWiseFinance.Infrastructure.Persistence.Configurations
                 .HasKey(x => x.Id);
 
             builder
-                .Property(u => u.FullName)
+                .Property(u => u.FirstName)
+                .HasColumnType("VARCHAR")
+                .HasMaxLength(255);
+
+            builder
+                .Property(u => u.LastName)
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(255);
 
