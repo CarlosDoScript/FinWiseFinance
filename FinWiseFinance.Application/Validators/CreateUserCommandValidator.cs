@@ -28,14 +28,18 @@ namespace FinWiseFinance.Application.Validators
                 .WithMessage("E-mail não válido");
 
             RuleFor(x => x.CpfCnpj)
-                .NotEmpty().WithMessage("CPF/CNPJ obrigatório")
+                .NotNull()
+                .NotEmpty()
+                .WithMessage("CPF/CNPJ obrigatório")
                 .Must(ExthensionMethodValidator.IsValidCpfOrCnpj)
                 .WithMessage("CPF/CNPJ inválido");
 
             RuleFor(x => x.Income)
                 .NotNull()
+                .NotEmpty()
+                .WithMessage("Renda obrigatório")
                 .NotEqual(0.0M)
-                .WithMessage("Valor do rendimento não pode ser zero");
+                .WithMessage("Valor do renda não pode ser zero");
 
             RuleFor(x => x.Type)
                 .NotNull()
@@ -49,12 +53,14 @@ namespace FinWiseFinance.Application.Validators
 
             RuleFor(x => x.DayOfReceipt)
                 .NotEmpty()
+                .NotNull()
                 .WithMessage("Data de recebimento obrigatório")
                 .Must(date => DateTime.TryParse(date.ToString(), out _))
                 .WithMessage("Formato de data inválido");
 
             RuleFor(x => x.BirthDate)
                 .NotEmpty()
+                .NotNull()
                 .WithMessage("Data de nascimento obrigatório")
                 .Must(date => DateTime.TryParse(date.ToString(), out _))
                 .WithMessage("Formato de data inválido");
