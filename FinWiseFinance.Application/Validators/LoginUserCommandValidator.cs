@@ -15,7 +15,9 @@ namespace FinWiseFinance.Application.Validators
              .WithMessage("CPF/CNPJ inválido");              
 
             RuleFor(u => u.Password)
-                .NotEmpty().WithMessage("Senha inválida");
+                .NotEmpty()
+                .NotNull()
+                .WithMessage("Senha inválida");
 
             RuleFor(u => u.Password)
                 .Must(ExthensionMethodValidator.ValidPassword)

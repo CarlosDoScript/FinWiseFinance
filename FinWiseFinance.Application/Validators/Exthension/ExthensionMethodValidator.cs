@@ -8,7 +8,7 @@ namespace FinWiseFinance.Application.Validators.Exthension
         {
             var regex = new Regex(@"^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!*@#$%^&+=]).*$");
 
-            return password == null || password.Trim() == "" ? false : regex.IsMatch(password);
+            return regex.IsMatch(password);
         }
         public static bool IsValidCpf(string cpf)
         {
