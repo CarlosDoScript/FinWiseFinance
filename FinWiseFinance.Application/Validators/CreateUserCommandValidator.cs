@@ -27,10 +27,6 @@ namespace FinWiseFinance.Application.Validators
                  .EmailAddress()
                 .WithMessage("E-mail não válido");
 
-            RuleFor(x => x.PhoneNumber)
-                .MaximumLength(15)
-                .WithMessage("Número máximo de dígitos para telefone é 15");
-
             RuleFor(x => x.CpfCnpj)
                 .NotEmpty().WithMessage("CPF/CNPJ obrigatório")
                 .Must(ExthensionMethodValidator.IsValidCpfOrCnpj)
@@ -40,11 +36,6 @@ namespace FinWiseFinance.Application.Validators
                 .NotNull()
                 .NotEqual(0.0M)
                 .WithMessage("Valor do rendimento não pode ser zero");
-
-            RuleFor(x => x.CorporateReason)
-                .NotEmpty()
-                .NotNull()
-                .WithMessage("Razão social obrigatório");
 
             RuleFor(x => x.Type)
                 .NotNull()
