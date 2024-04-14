@@ -1,5 +1,6 @@
 ﻿using FinWiseFinance.Application.Commands.CreateUser;
 using FinWiseFinance.Application.Commands.LoginUser;
+using FinWiseFinance.Application.Queries.GetUserById;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -12,9 +13,13 @@ namespace FinWiseFinance.API.Controllers
     public class UsersController(IMediator _mediator) : ControllerBase
     {
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById()
+        public async Task<IActionResult> GetById(int id)
         {
-            return Ok();
+            var query = new GetUserByIdQuery(id);
+
+            var user = await _mediator.Send(query);
+
+            return Ok(user);
         }
 
         [HttpPost]
