@@ -4,14 +4,7 @@ using FinWiseFinance.Core.Entities;
 using FinWiseFinance.Core.Enums;
 using FinWiseFinance.Core.Repositories;
 using FinWiseFinance.Core.Services;
-using FluentValidation;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FinWiseFinance.UnitTests.Application.Commands
 {
@@ -67,7 +60,7 @@ namespace FinWiseFinance.UnitTests.Application.Commands
                 LastName = "Henrique",
                 Email = "carlosmvsep3@hotmail.com",
                 PhoneNumber = "17 997411585",
-                CpfCnpj = "462.644.918-29",
+                CpfCnpj = "999.999.999-99",
                 //CpfCnpj = "91.753.325/0001-09",
                 Income = 1500M,
                 CorporateReason = null,
