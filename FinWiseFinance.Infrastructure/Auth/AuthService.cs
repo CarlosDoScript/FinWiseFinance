@@ -27,7 +27,7 @@ namespace FinWiseFinance.Infrastructure.Auth
             }
         }
 
-        public string GenerateJwtToken(string fullName, string email, string cpfCnpj)
+        public string GenerateJwtToken(string firstName, string lastName, string email, string cpfCnpj)
         {
             var issuer = _configuration["Jwt:Issuer"];
             var audience = _configuration["Jwt:Audience"];
@@ -39,7 +39,7 @@ namespace FinWiseFinance.Infrastructure.Auth
             var claims = new List<Claim>
             {
                 new Claim("userName",email),
-                new Claim("fullName",fullName),
+                new Claim("fullName",firstName + " " + lastName),
                 new Claim("cpfCnpj",cpfCnpj)
             };
 

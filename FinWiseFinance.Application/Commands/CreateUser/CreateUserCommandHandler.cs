@@ -1,4 +1,5 @@
-﻿using FinWiseFinance.Core.Entities;
+﻿using FinWiseFinance.Application.Exthension;
+using FinWiseFinance.Core.Entities;
 using FinWiseFinance.Core.Repositories;
 using FinWiseFinance.Core.Services;
 using MediatR;
@@ -15,13 +16,13 @@ namespace FinWiseFinance.Application.Commands.CreateUser
             var passwordHash = _authService.ComputeSha256Hash(request.Password);
 
             var user = new User(
-                    request.FirstName,
-                    request.LastName,
+                    ExthensionMethods.PrimeiraLetraMaiuscula(request.FirstName),
+                    ExthensionMethods.PrimeiraLetraMaiuscula(request.LastName),
                     request.Email,
                     request.PhoneNumber,
                     request.CpfCnpj,
                     request.Income,
-                    request.CorporateReason,
+                    ExthensionMethods.PrimeiraLetraMaiuscula(request.CorporateReason),
                     request.Type,
                     request.TypeSalary,
                     request.BirthDate,

@@ -13,11 +13,11 @@ namespace FinWiseFinance.Infrastructure.Persistence.Repositories
 
         public async Task<int> AddAsync(User user)
         {
-            await _finWiseFinanceDbContext.AddAsync(user);            
+            await _finWiseFinanceDbContext.AddAsync(user);
             await _finWiseFinanceDbContext.SaveChangesAsync();
 
             return user.Id;
-        }      
+        }
 
         public async Task<User> GetUserByCpfOrCnpjAndPasswordAsync(string cpfCnpj, string passwordHash)
         {

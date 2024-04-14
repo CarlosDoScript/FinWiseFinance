@@ -1,5 +1,5 @@
 ﻿using FinWiseFinance.Application.Commands.LoginUser;
-using FinWiseFinance.Application.Validators.Exthension;
+using FinWiseFinance.Application.Exthension;
 using FluentValidation;
 using System.Text.RegularExpressions;
 

@@ -1,12 +1,12 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace FinWiseFinance.Application.Validators.Exthension
+namespace FinWiseFinance.Application.Exthension
 {
     public static class ExthensionMethodValidator
     {
         public static bool ValidPassword(string password)
         {
-            var regex = new Regex(@"^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!*@#$%^&+=]).*$");           
+            var regex = new Regex(@"^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!*@#$%^&+=]).*$");
 
             return password == null || password == string.Empty ? false : regex.IsMatch(password);
         }

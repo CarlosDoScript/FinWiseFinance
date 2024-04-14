@@ -399,7 +399,7 @@ namespace FinWiseFinance.Infrastructure.Persistence.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("VARCHAR");
 
-                    b.Property<string>("FullName")
+                    b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("VARCHAR");
@@ -411,6 +411,11 @@ namespace FinWiseFinance.Infrastructure.Persistence.Migrations
                     b.Property<decimal>("Income")
                         .HasMaxLength(18)
                         .HasColumnType("DECIMAL (18,2)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("VARCHAR");
 
                     b.Property<string>("Password")
                         .IsRequired()

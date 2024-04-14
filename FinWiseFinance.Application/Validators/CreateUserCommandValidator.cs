@@ -1,5 +1,5 @@
 ﻿using FinWiseFinance.Application.Commands.CreateUser;
-using FinWiseFinance.Application.Validators.Exthension;
+using FinWiseFinance.Application.Exthension;
 using FluentValidation;
 
 namespace FinWiseFinance.Application.Validators

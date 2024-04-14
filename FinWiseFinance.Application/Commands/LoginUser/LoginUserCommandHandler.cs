@@ -21,7 +21,7 @@ namespace FinWiseFinance.Application.Commands.LoginUser
             if (user == null)
                 return null;
 
-            var token = _authService.GenerateJwtToken(user.FirstName,user.Email,user.CpfCnpj);
+            var token = _authService.GenerateJwtToken(user.FirstName, user.LastName,user.Email,user.CpfCnpj);
 
 
             return new LoginUserViewModel(user.CpfCnpj,token);

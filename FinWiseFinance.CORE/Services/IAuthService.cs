@@ -2,7 +2,7 @@
 {
     public interface IAuthService 
     {
-        string GenerateJwtToken(string fullName, string email, string cpfCnpj);
+        string GenerateJwtToken(string firstName,string lastName, string email, string cpfCnpj);
         string ComputeSha256Hash(string password);
     }
 }

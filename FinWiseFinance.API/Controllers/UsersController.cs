@@ -19,6 +19,9 @@ namespace FinWiseFinance.API.Controllers
 
             var user = await _mediator.Send(query);
 
+            if(user == null)
+                return NotFound();
+
             return Ok(user);
         }
 

@@ -64,7 +64,8 @@ namespace FinWiseFinance.Infrastructure.Persistence.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FullName = table.Column<string>(type: "VARCHAR(255)", maxLength: 255, nullable: false),
+                    FirstName = table.Column<string>(type: "VARCHAR(255)", maxLength: 255, nullable: false),
+                    LastName = table.Column<string>(type: "VARCHAR(255)", maxLength: 255, nullable: false),
                     Email = table.Column<string>(type: "VARCHAR(255)", maxLength: 255, nullable: false),
                     PhoneNumber = table.Column<string>(type: "VARCHAR(15)", maxLength: 15, nullable: true),
                     CpfCnpj = table.Column<string>(type: "VARCHAR(20)", maxLength: 20, nullable: false),

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinWiseFinance.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(FinWiseFinanceDbContext))]
-    [Migration("20240404235846_InitialMigration")]
+    [Migration("20240414153044_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -402,7 +402,7 @@ namespace FinWiseFinance.Infrastructure.Persistence.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("VARCHAR");
 
-                    b.Property<string>("FullName")
+                    b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("VARCHAR");
@@ -414,6 +414,11 @@ namespace FinWiseFinance.Infrastructure.Persistence.Migrations
                     b.Property<decimal>("Income")
                         .HasMaxLength(18)
                         .HasColumnType("DECIMAL (18,2)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("VARCHAR");
 
                     b.Property<string>("Password")
                         .IsRequired()
