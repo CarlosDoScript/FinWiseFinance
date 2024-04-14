@@ -6,9 +6,13 @@ namespace FinWiseFinance.Infrastructure.Persistence.Repositories
 {
     public class UserRepository(FinWiseFinanceDbContext _finWiseFinanceDbContext) : IUserRepository
     {
-        public async Task<User> GetById(int id)
+        public async Task<User> GetByIdAsync(int id)
         {
             return await _finWiseFinanceDbContext.Users.SingleOrDefaultAsync(u => u.Id == id && u.Active);
+        }
+        public async Task<User> GetByCpfCnpjAsync(string cpfCnpj)
+        {
+            return await _finWiseFinanceDbContext.Users.SingleOrDefaultAsync(u => u.CpfCnpj == cpfCnpj && u.Active);
         }
 
         public async Task<int> AddAsync(User user)
@@ -22,6 +26,6 @@ namespace FinWiseFinance.Infrastructure.Persistence.Repositories
         public async Task<User> GetUserByCpfOrCnpjAndPasswordAsync(string cpfCnpj, string passwordHash)
         {
             return await _finWiseFinanceDbContext.Users.SingleOrDefaultAsync(u => u.CpfCnpj == cpfCnpj && u.Password == passwordHash);
-        }
+        }      
     }
 }

@@ -2,15 +2,15 @@
 using FinWiseFinance.Core.Repositories;
 using MediatR;
 
-namespace FinWiseFinance.Application.Queries.GetUserById
+namespace FinWiseFinance.Application.Queries.GetUserExistentByCpfCnpj
 {
-    public class GetUserByIdQueryHandler(
+    public class GetUserExistentByCpfCnpjQueryHandler(
         IUserRepository _userRepository
-        ) : IRequestHandler<GetUserByIdQuery, UserViewModel>
+        ) : IRequestHandler<GetUserExistentByCpfCnpjQuery, UserViewModel>
     {
-        public async Task<UserViewModel> Handle(GetUserByIdQuery request, CancellationToken cancellationToken)
+        public async Task<UserViewModel> Handle(GetUserExistentByCpfCnpjQuery request, CancellationToken cancellationToken)
         {
-            var user = await _userRepository.GetByIdAsync(request.Id);
+            var user = await _userRepository.GetByCpfCnpjAsync(request.CpfCnpj);
 
             if (user == null)
                 return null;
