@@ -17,20 +17,21 @@ namespace FinWiseFinance.Application.Validators
 
 
             RuleFor(x => x.LastName)
-                .MaximumLength(50)
-                .WithMessage("Tamanho máximo do último nome é de 50 caracteres")
                 .NotNull()
                 .NotEmpty()
-                .WithMessage("Último nome obrigatório");
+                .WithMessage("Último nome obrigatório")
+                .MaximumLength(50)
+                .WithMessage("Tamanho máximo do último nome é de 50 caracteres");
 
             RuleFor(x => x.Email)
-                 .EmailAddress()
-                .WithMessage("E-mail não válido");
+                //.NotEmpty()
+                //.NotNull()
+                //.WithMessage("E-mail obrigatório")
+                .EmailAddress()
+                .WithMessage("E-mail não é válido");
 
-            RuleFor(x => x.CpfCnpj)
-                .NotNull()
-                .NotEmpty()
-                .WithMessage("CPF/CNPJ obrigatório")
+            RuleFor(u => u.CpfCnpj)
+                .NotEmpty().WithMessage("CPF/CNPJ obrigatório")
                 .Must(ExthensionMethodValidator.IsValidCpfOrCnpj)
                 .WithMessage("CPF/CNPJ inválido");
 
@@ -39,16 +40,14 @@ namespace FinWiseFinance.Application.Validators
                 .NotEmpty()
                 .WithMessage("Renda obrigatório")
                 .NotEqual(0.0M)
-                .WithMessage("Valor do renda não pode ser zero");
+                .WithMessage("Valor da renda não pode ser zero");
 
             RuleFor(x => x.Type)
                 .NotNull()
-                .NotEmpty()
                 .WithMessage("Tipo usuário obrigatório");
 
             RuleFor(x => x.TypeSalary)
                 .NotNull()
-                .NotEmpty()
                 .WithMessage("Tipo salário obrigatório");
 
             RuleFor(x => x.DayOfReceipt)

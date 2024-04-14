@@ -6,9 +6,9 @@ namespace FinWiseFinance.Application.Validators.Exthension
     {
         public static bool ValidPassword(string password)
         {
-            var regex = new Regex(@"^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!*@#$%^&+=]).*$");
+            var regex = new Regex(@"^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!*@#$%^&+=]).*$");           
 
-            return regex.IsMatch(password);
+            return password == null || password == string.Empty ? false : regex.IsMatch(password);
         }
         public static bool IsValidCpf(string cpf)
         {
@@ -68,7 +68,7 @@ namespace FinWiseFinance.Application.Validators.Exthension
         }
         public static bool IsValidCpfOrCnpj(string value)
         {
-            if (value?.Replace(".","").Replace("-","").Replace("/","").Length == 11)
+            if (value?.Replace(".", "").Replace("-", "").Replace("/", "").Length == 11)
             {
                 return IsValidCpf(value);
             }
