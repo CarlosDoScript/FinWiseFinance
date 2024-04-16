@@ -2,7 +2,7 @@
 
 namespace FinWiseFinance.Core.Repositories
 {
-    public interface IUserRepository
+    public interface IUserRepository : IDisposable
     {
         Task<User> GetByIdAsync(int id);
         Task<User> GetByCpfCnpjAsync(string cpfCnpj);

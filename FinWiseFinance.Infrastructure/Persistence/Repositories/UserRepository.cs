@@ -26,6 +26,18 @@ namespace FinWiseFinance.Infrastructure.Persistence.Repositories
         public async Task<User> GetUserByCpfOrCnpjAndPasswordAsync(string cpfCnpj, string passwordHash)
         {
             return await _finWiseFinanceDbContext.Users.SingleOrDefaultAsync(u => u.CpfCnpj == cpfCnpj && u.Password == passwordHash);
-        }      
+        }
+
+        private bool _disposed = false;
+
+        ~UserRepository() =>
+            Dispose();
+
+        public void Dispose()
+        {
+            if (!_disposed)
+                _finWiseFinanceDbContext.Dispose();
+            GC.SuppressFinalize(this);
+        }
     }
 }
