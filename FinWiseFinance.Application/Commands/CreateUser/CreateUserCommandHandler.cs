@@ -8,7 +8,8 @@ namespace FinWiseFinance.Application.Commands.CreateUser
 {
     public class CreateUserCommandHandler(
         IUserRepository _userRepository,
-        IAuthService _authService
+        IAuthService _authService,
+        IUnitOfWork _uow
         ) : IRequestHandler<CreateUserCommand, int>
     {
         public async Task<int> Handle(CreateUserCommand request, CancellationToken cancellationToken)
@@ -31,9 +32,10 @@ namespace FinWiseFinance.Application.Commands.CreateUser
                     request.IdCompanyBranch
                 );
 
-            var id = await _userRepository.AddAsync(user);
+            await _userRepository.AddAsync(user);
+            await _uow.CommitAsync();
 
-            return id;
+            return user?.Id ?? 0;
         }
     }
 }

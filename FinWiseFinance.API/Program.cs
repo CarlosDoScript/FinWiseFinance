@@ -1,6 +1,6 @@
 #region SERVICES
 using FinWiseFinance.API.Filters;
-using FinWiseFinance.Application.Commands.CreateBank;
+using FinWiseFinance.Application.Commands.CreateUser;
 using FinWiseFinance.Application.Validators;
 using FinWiseFinance.Core.Repositories;
 using FinWiseFinance.Core.Services;
@@ -29,11 +29,11 @@ builder.Services.AddSwaggerGen();
 
 #region REPOSITORIES E SERVICES
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IBankRepository, BankRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 #endregion
 
-builder.Services.AddMediatR(m => m.RegisterServicesFromAssembly(typeof(CreateBankCommand).Assembly));
+builder.Services.AddMediatR(m => m.RegisterServicesFromAssembly(typeof(CreateUserCommand).Assembly));
 
 builder.Services.AddSwaggerGen(c =>
 {

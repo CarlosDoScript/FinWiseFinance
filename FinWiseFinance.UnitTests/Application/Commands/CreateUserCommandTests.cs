@@ -84,6 +84,7 @@ namespace FinWiseFinance.UnitTests.Application.Commands
         {
             var userRepositoryMock = new Mock<IUserRepository>();
             var authServiceMock = new Mock<IAuthService>();
+            var uofMock = new Mock<IUnitOfWork>();
 
             //Arrange
             var createUserCommand = new CreateUserCommand
@@ -104,7 +105,7 @@ namespace FinWiseFinance.UnitTests.Application.Commands
                 IdCompanyBranch = null
             };
 
-            var createUserCommandHandler = new CreateUserCommandHandler(userRepositoryMock.Object, authServiceMock.Object);
+            var createUserCommandHandler = new CreateUserCommandHandler(userRepositoryMock.Object, authServiceMock.Object, uofMock.Object);
 
             //Act 
             var id = await createUserCommandHandler.Handle(createUserCommand, new CancellationToken());

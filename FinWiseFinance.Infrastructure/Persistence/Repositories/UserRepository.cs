@@ -15,12 +15,9 @@ namespace FinWiseFinance.Infrastructure.Persistence.Repositories
             return await _finWiseFinanceDbContext.Users.SingleOrDefaultAsync(u => u.CpfCnpj == cpfCnpj && u.Active);
         }
 
-        public async Task<int> AddAsync(User user)
+        public async Task AddAsync(User user)
         {
-            await _finWiseFinanceDbContext.AddAsync(user);
-            await _finWiseFinanceDbContext.SaveChangesAsync();
-
-            return user.Id;
+            await _finWiseFinanceDbContext.AddAsync(user);            
         }
 
         public async Task<User> GetUserByCpfOrCnpjAndPasswordAsync(string cpfCnpj, string passwordHash)

@@ -7,6 +7,6 @@ namespace FinWiseFinance.Core.Repositories
         Task<User> GetByIdAsync(int id);
         Task<User> GetByCpfCnpjAsync(string cpfCnpj);
         Task<User> GetUserByCpfOrCnpjAndPasswordAsync(string cpfCnpj, string passwordHash);
-        Task<int> AddAsync(User user);
+        Task AddAsync(User user);
     }
 }
