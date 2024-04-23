@@ -42,5 +42,13 @@ namespace FinWiseFinance.Core.Entities
         public List<PurchaseObjectiveHistory>? PurchaseObjectiveHistories { get; private set; } = new List<PurchaseObjectiveHistory>();
 
         public CompanyBranch? CompanyBranch { get; private set; }
+
+        public void Desactive()
+        {
+            if (Active)
+            {
+                Active = false;
+            }
+        }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using FinWiseFinance.Core.Repositories;
-using Microsoft.EntityFrameworkCore;
 
 namespace FinWiseFinance.Infrastructure.Persistence.Repositories
 {

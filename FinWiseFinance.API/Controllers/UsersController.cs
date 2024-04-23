@@ -1,4 +1,5 @@
 ﻿using FinWiseFinance.Application.Commands.CreateUser;
+using FinWiseFinance.Application.Commands.DesactiveUser;
 using FinWiseFinance.Application.Commands.LoginUser;
 using FinWiseFinance.Application.Queries.GetUserById;
 using FinWiseFinance.Application.Queries.GetUserExistentByCpfCnpj;
@@ -52,6 +53,14 @@ namespace FinWiseFinance.API.Controllers
                 return BadRequest("CPF/CNPJ ou Senha Incorretos");
 
             return Ok(loginUserViewModel);
+        }
+
+        [HttpPut("desactive")]
+        public async Task<IActionResult> Desactive([FromBody] DesactiveUserCommand command)
+        {
+            await _mediator.Send(command);
+
+            return Ok();
         }
     }
 }
